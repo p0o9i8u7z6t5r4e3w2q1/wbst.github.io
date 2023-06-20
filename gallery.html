@@ -176,24 +176,41 @@
                 transform: rotate(0deg);
             }
         }
+        
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loader-text {
+            color: #fff;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 
 <body>
     <h1>GALERIJA</h1>
+    <div class="loader" id="loader">
+        <div class="loader-text">Nalaganje...</div>
+    </div>
 
     <div class="galerija" id="galerija">
-        <div class="galerija-item">
-            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811518502633482/LKA02328.jpg"></div>
-        </div>
-        <div class="galerija-item">
-            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811519756738560/LKA02335.jpg"></div>
-        </div>
-        <div class="galerija-item">
-            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811516208357446/LKA02320.jpg"></div>
-        </div>
+
         <div class="galerija-item">
             <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811517290500266/LKA02322.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818177958494258/DSC02246.jpg"></div>
         </div>
         <div class="galerija-item">
             <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120814090537947166/DSC02233-2.jpg"></div>
@@ -205,19 +222,62 @@
             <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120814093843046410/DSC_3675.jpg"></div>
         </div>
         <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811518502633482/LKA02328.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811519756738560/LKA02335.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120811516208357446/LKA02320.jpg"></div>
+        </div>
+        <div class="galerija-item">
             <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120814093041946674/DSC_3658.jpg"></div>
         </div>
         <div class="galerija-item">
             <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120814092169523291/DSC_3566.jpg"></div>
         </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818177958494258/DSC02246.jpg.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818347110568017/DSC06876.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818356203831356/DSC06871.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818364269482064/DSC06739.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818393998692443/DSC02306.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818392434212945/DSC02299.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818587150598206/DSC02294.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818586043306025/DSC02297.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="https://cdn.discordapp.com/attachments/676022033921867776/1120818596860412015/DSC07188.jpg"></div>
+        </div>
 
     </div>
 
     <script>
+        var loader = document.querySelector('#loader');
         var galerija = document.querySelector('#galerija');
         var getVal = function(elem, style) {
             return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
         };
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loader.style.display = 'none';
+                galerija.classList.add('hello');
+            }, 1000);
+        });
         var getHeight = function(item) {
             return item.querySelector('.content').getBoundingClientRect().height;
         };

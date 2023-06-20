@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galerija</title>
+
+    <style>
+        body {
+            background-color: #333;
+        }
+        
+        h1 {
+            font-size: 80px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hello {
+            opacity: 1 !important;
+        }
+        
+        .full {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .full .content {
+            background-color: rgba(0, 0, 0, 0.75) !important;
+            height: 100%;
+            width: 100%;
+            display: grid;
+        }
+        
+        .full .content img {
+            left: 50%;
+            transform: translate3d(0, 0, 0);
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+        }
+        
+        .galerija {
+            display: grid;
+            grid-column-gap: 8px;
+            grid-row-gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 8px;
+        }
+        
+        .galerija img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 16px #333;
+            transition: all 1.5s ease;
+        }
+        
+        .galerija img:hover {
+            box-shadow: 0 0 32px #333;
+        }
+        
+        .galerija .content {
+            padding: 4px;
+        }
+        
+        .galerija .galerija-item {
+            transition: grid-row-start 300ms linear;
+            transition: transform 300ms ease;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .galerija .galerija-item:hover {
+            transform: scale(1.025);
+        }
+        
+        @media (max-width: 600px) {
+            .galerija {
+                grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .galerija {
+                grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+            }
+        }
+        
+        @-moz-keyframes zoomin {
+            0% {
+                max-width: 50%;
+                transform: rotate(-30deg);
+                filter: blur(4px);
+            }
+            30% {
+                filter: blur(4px);
+                transform: rotate(-80deg);
+            }
+            70% {
+                max-width: 50%;
+                transform: rotate(45deg);
+            }
+            100% {
+                max-width: 100%;
+                transform: rotate(0deg);
+            }
+        }
+        
+        @-webkit-keyframes zoomin {
+            0% {
+                max-width: 50%;
+                transform: rotate(-30deg);
+                filter: blur(4px);
+            }
+            30% {
+                filter: blur(4px);
+                transform: rotate(-80deg);
+            }
+            70% {
+                max-width: 50%;
+                transform: rotate(45deg);
+            }
+            100% {
+                max-width: 100%;
+                transform: rotate(0deg);
+            }
+        }
+        
+        @-o-keyframes zoomin {
+            0% {
+                max-width: 50%;
+                transform: rotate(-30deg);
+                filter: blur(4px);
+            }
+            30% {
+                filter: blur(4px);
+                transform: rotate(-80deg);
+            }
+            70% {
+                max-width: 50%;
+                transform: rotate(45deg);
+            }
+            100% {
+                max-width: 100%;
+                transform: rotate(0deg);
+            }
+        }
+        
+        @keyframes zoomin {
+            0% {
+                max-width: 50%;
+                transform: rotate(-30deg);
+                filter: blur(4px);
+            }
+            30% {
+                filter: blur(4px);
+                transform: rotate(-80deg);
+            }
+            70% {
+                max-width: 50%;
+                transform: rotate(45deg);
+            }
+            100% {
+                max-width: 100%;
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GALERIJA</h1>
+
+    <div class="galerija" id="galerija">
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02233-2.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02246.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02269.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02294.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02297.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02299.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC02306.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC06739.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC06871.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC06876.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC07188.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC_3565.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC_3566.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC_3658.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/DSC_3675.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02320.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02322.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02328.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02335.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02340.jpg"></div>
+        </div>
+        <div class="galerija-item">
+            <div class="content"><img src="images/LKA02343.jpg"></div>
+        </div>
+
+    </div>
+
+    <script>
+        var galerija = document.querySelector('#galerija');
+        var getVal = function(elem, style) {
+            return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
+        };
+        var getHeight = function(item) {
+            return item.querySelector('.content').getBoundingClientRect().height;
+        };
+        var resizeAll = function() {
+            var altura = getVal(galerija, 'grid-auto-rows');
+            var gap = getVal(galerija, 'grid-row-gap');
+            galerija.querySelectorAll('.galerija-item').forEach(function(item) {
+                var el = item;
+                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+            });
+        };
+
+        galerija.querySelectorAll('img').forEach(function(item) {
+            item.addEventListener('load', function() {
+                var altura = getVal(galerija, 'grid-auto-rows');
+                var gap = getVal(galerija, 'grid-row-gap');
+                var gitem = item.parentElement.parentElement;
+                gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+            });
+        });
+
+        window.addEventListener('resize', resizeAll);
+
+        galerija.querySelectorAll('.galerija-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                item.classList.toggle('full');
+            });
+        });
+    </script>
+</body>
+
+</html>

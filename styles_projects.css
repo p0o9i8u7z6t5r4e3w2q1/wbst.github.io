@@ -79,7 +79,8 @@ h1 {
 
 h1,
 h2,
-video {
+video,
+iframe {
     opacity: 0;
     animation: fade-in 1s ease forwards;
 }

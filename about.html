@@ -1,5 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-o meni
+<html>
+
+<head>
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #333;
+            overflow-y: scroll;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 1000px rgba(0, 0, 0, 100);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .left-section {
+            padding: 30px;
+            flex: 1;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            overflow: hidden;
+        }
+        
+        h1,
+        h2 {
+            color: #000000;
+        }
+        
+        p {
+            color: #333333;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            opacity: 0;
+            border-radius: 10px;
+        }
+        /* CSS for animations */
+        
+        .fade-in {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .fade-in:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .fade-in:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .fade-in:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        /* CSS for fade animation */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        
+        .button {
+            position: fixed;
+            z-index: 999;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="button" href="index.html">Domov</a>
+    <div class="container">
+        <div class="left-section">
+            <h1>O meni</h1>
+            <div class="text-content">
+                <div>
+                    <p>Sem 18-letnik, ki želi svoje znanje snemanja in montaže videoposnetkov uporabiti na različnih področjih. Redno spremljam razvoj videomontaže in se prilagajam najnovejši programski opremi. Zanimajo me vsa področja videoprodukcije: od
+                        televizijskih oglasov, do filmske industrije in raznovrstnih spletnih vsebin.</p>
+                </div>
+                <div>
+                    <h2>Izobraževanje</h2>
+                    <p>2010-2019<br>Osnovna Šola Miška Kranjca Ljubljana<br>Vsa leta sem opravil z odličnim uspehom.
+                    </p>
+                </div>
+                <div>
+                    <p>2019-2023<br>Zaključil sem 4-letni gimnazijski program na Elektrotehniško-računalniški strokovni šoli in gimnaziji v Ljlubljani.
+                    </p>
+                </div>
+                <div>
+                    <h2>Izkušnje</h2>
+                    <p>- Snemanje in montaža različnih &nbsp;&nbsp;&nbsp;videoposnetkov za ustvarjalce na družbenih &nbsp;&nbsp;&nbsp;omrežjih (YouTube, Instagram, TikTok …).<br>- Montaža promocijskih videoposnetkov za &nbsp;&nbsp;&nbsp;izdelke na Amazonu.
+                        <br>- Snemanje in montaža šolskih proslav ob &nbsp;&nbsp;&nbsp;praznikih.<br>- Uporaba umetne inteligence pri video &nbsp;&nbsp;&nbsp;montaži.<br>- Razvijanje aplikacij pri podjetju Discord.</p>
+                </div>
+
+                <div>
+                    <h2>Značilnosti</h2>
+                    <p>- zanesljivost<br>- natančnost<br>- odgovornost<br>- prilagodljivost<br>- kreativnost</p>
+                </div>
+                <div>
+                    <h2>Programska oprema</h2>
+                    <p>- Adobe Premiere Pro<br> - Adobe Photoshop<br> - Topaz labs<br> - OBS Studio<br> - iZotope RX<br> - okolje Windows</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <img class="fade-in" src="https://cdn.discordapp.com/attachments/676022033921867776/1121760639342354482/portret.jpg" alt="Image 1">
+            <img class="fade-in" src="https://cdn.discordapp.com/attachments/676022033921867776/1121760646527201351/slika2.jpg" alt="Image 2">
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for animations
+        const images = document.querySelectorAll('.fade-in');
+
+        function debounce(func, wait = 10, immediate = true) {
+            let timeout;
+            return function() {
+                const context = this,
+                    args = arguments;
+                const later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+
+        function checkSlide() {
+            images.forEach(image => {
+                const slideInAt = (window.scrollY + window.innerHeight) - image.height / 2;
+                const imageBottom = image.offsetTop + image.height;
+                const isHalfShown = slideInAt > image.offsetTop;
+                const isNotScrolledPast = window.scrollY < imageBottom;
+                if (isHalfShown && isNotScrolledPast) {
+                    image.classList.add('fade-in');
+                } else {
+                    image.classList.remove('fade-in');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', debounce(checkSlide));
+    </script>
+</body>
 
 </html>

@@ -124,82 +124,86 @@
 </head>
 
 <body>
-    <a class="button" href="index-en">Home</a>
+    <a class="button" href="index-sl">Domov</a>
     <div class="container">
         <div class="left-section">
-            <h1>About Me</h1>
+            <h1>O meni</h1>
             <div class="text-content">
                 <div>
-                    <p>I am an 18-year-old who wants to utilize his knowledge of filming and editing in various fields. I keep up with the advancements in video editing and adapt to the latest software. I am interested in all aspects of video production,
-                        from TV commercials to the film industry and various online content.</p>
+                    <p>Sem 18-letnik, ki želi svoje znanje snemanja in montaže videoposnetkov uporabiti na različnih področjih. Redno spremljam razvoj videomontaže in se prilagajam najnovejši programski opremi. Zanimajo me vsa področja videoprodukcije: od
+                        televizijskih oglasov, do filmske industrije in raznovrstnih spletnih vsebin.</p>
                 </div>
                 <div>
-                    <h2>Education</h2>
-                    <p>2010-2019<br>Miško Kranjc Primary School, Ljubljana<br>Achieved excellent grades throughout the years.</p>
+                    <h2>Izobraževanje</h2>
+                    <p>2010-2019<br>Osnovna Šola Miška Kranjca Ljubljana<br>Vsa leta sem opravil z odličnim uspehom.
+                    </p>
                 </div>
                 <div>
-                    <p>2019-2023<br>Completed a 4-year high school program at the Electrical Engineering and Computer Science School and Gymnasium in Ljubljana.</p>
+                    <p>2019-2023<br>Zaključil sem 4-letni gimnazijski program na Elektrotehniško-računalniški strokovni šoli in gimnaziji v Ljlubljani.
+                    </p>
                 </div>
                 <div>
-                    <h2>Experience</h2>
-                    <p>- Shooting and editing various videos for content creators on social media platforms (YouTube, Instagram, TikTok, etc.),<br>- Editing promotional videos for products on Amazon,<br>- Shooting and editing school videos during holidays,<br>-
-                        Utilizing artificial intelligence in video editing,<br>- Drone videography,<br>- Application development at Discord.</p>
+                    <h2>Izkušnje</h2>
+                    <p>- snemanje in montaža različnih &nbsp;&nbsp;&nbsp;videoposnetkov za ustvarjalce na družbenih &nbsp;&nbsp;&nbsp;omrežjih (YouTube, Instagram, TikTok …),<br>- montaža promocijskih videoposnetkov za &nbsp;&nbsp;&nbsp;izdelke na Amazonu,
+                        <br>- snemanje in montaža šolskih proslav ob &nbsp;&nbsp;&nbsp;praznikih,<br>- uporaba umetne inteligence pri video &nbsp;&nbsp;&nbsp;montaži, <br>- snemanje z dronom, <br>- razvijanje aplikacij pri podjetju Discord.</p>
+                </div>
+
+                <div>
+                    <h2>Značilnosti</h2>
+                    <p>- zanesljivost,<br>- natančnost,<br>- odgovornost,<br>- prilagodljivost,<br>- kreativnost.</p>
                 </div>
                 <div>
-                    <h2>Strengths</h2>
-                    <p>- Reliability,<br>- Precision,<br>- Responsibility,<br>- Adaptability,<br>- Creativity.</p>
-                </div>
-                <div>
-                    <h2>Software</h2>
-                    <p>- Adobe Premiere Pro,<br>- Adobe Photoshop,<br>- Adobe Lightroom,<br>- Topaz labs,<br>- OBS Studio,<br>- iZotope RX,<br>- Windows.</p>
+                    <h2>Programska oprema</h2>
+                    <p>- Adobe Premiere Pro,<br>- Adobe Photoshop,<br>- Adobe Lightroom,<br>- Topaz labs,<br>- OBS Studio,<br>- iZotope RX,<br>- okolje Windows.</p>
                 </div>
             </div>
         </div>
         <div class="right-section">
             <img class="fade-in" src="https://cdn.discordapp.com/attachments/676022033921867776/1121760639342354482/portret.jpg" alt="Image 1">
             <img class="fade-in" src="https://cdn.discordapp.com/attachments/676022033921867776/1121760646527201351/slika2.jpg" alt="Image 2">
-            <p>&nbsp;&nbsp;&nbsp;Email: kristof.markelj@gmail.com</p>
+            <p>&nbsp;&nbsp;&nbsp;E-mail: kristof.markelj@gmail.com</p>
             <p>&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/kri%C5%A1tof-markelj/">LinkedIN</a>&nbsp;&nbsp;&nbsp;<a href="https://www.upwork.com/freelancers/kristofm">UpWork</a></p>
+
 
         </div>
     </div>
-</body>
 
-<script>
-    const images = document.querySelectorAll('.fade-in');
+    <script>
+        // JavaScript for animations
+        const images = document.querySelectorAll('.fade-in');
 
-    function debounce(func, wait = 10, immediate = true) {
-        let timeout;
-        return function() {
-            const context = this,
-                args = arguments;
-            const later = function() {
-                timeout = null;
-                if (!immediate) func.apply(context, args);
+        function debounce(func, wait = 10, immediate = true) {
+            let timeout;
+            return function() {
+                const context = this,
+                    args = arguments;
+                const later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
             };
-            const callNow = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
-        };
-    }
+        }
 
-    function checkSlide() {
-        images.forEach(image => {
-            const slideInAt = (window.scrollY + window.innerHeight) - image.height / 2;
-            const imageBottom = image.offsetTop + image.height;
-            const isHalfShown = slideInAt > image.offsetTop;
-            const isNotScrolledPast = window.scrollY < imageBottom;
-            if (isHalfShown && isNotScrolledPast) {
-                image.classList.add('fade-in');
-            } else {
-                image.classList.remove('fade-in');
-            }
-        });
-    }
+        function checkSlide() {
+            images.forEach(image => {
+                const slideInAt = (window.scrollY + window.innerHeight) - image.height / 2;
+                const imageBottom = image.offsetTop + image.height;
+                const isHalfShown = slideInAt > image.offsetTop;
+                const isNotScrolledPast = window.scrollY < imageBottom;
+                if (isHalfShown && isNotScrolledPast) {
+                    image.classList.add('fade-in');
+                } else {
+                    image.classList.remove('fade-in');
+                }
+            });
+        }
 
-    window.addEventListener('scroll', debounce(checkSlide));
-</script>
+        window.addEventListener('scroll', debounce(checkSlide));
+    </script>
 </body>
 
 </html>

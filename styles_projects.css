@@ -65,7 +65,6 @@ a::after {
     background-color: #fff;
     transform: scaleX(0);
     transition: transform 0.3s ease;
-    /* Add this line for smooth transition */
 }
 
 a:hover::after {
